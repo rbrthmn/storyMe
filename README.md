@@ -17,5 +17,5 @@ Diariamente somos bombardeados com novas informações, notícias e acabamos nã
 | **Fluxo principal** | 1. Clicar no [botão de registrar dia]<br>2. Usar entrada de texto para responder a questão: “Como foi seu dia?”, que está escrita na tela<br>3.Clicar no [botão próximo]<br>4. Usar entrada de texto para responder a questão: "O que você fez hoje?", que está escrita na tela<br>5. Clicar no [botão próximo]<br>6. Usar entrada de texto para responder a questão: “O que teve de bom no seu dia? E como você se sente sobre isso? ”, que está escrita na tela<br>7. Clicar no [botão próximo]<br>8. Usar entrada de texto para responder a questão: “O que teve de ruim no seu dia? E como você se sente sobre isso?”, que está escrita na tela<br>9. Clicar no [botão próximo]<br>10. Usar entrada de texto para responder a questão: "A quem você agradeceria as coisas boas de hoje?", que está escrita na tela<br>11. Clicar no [botão próximo]<br>12. Verificar mensagem de sucesso<br>13. Exibir Registro do dia<br>(Fim do caso de uso)|
  | **Fluxo Alternativo** ||
  ### Diagrama geral de Classes UML
-
+![](/docs/assets/Diagrama-de-classes.png)
  ### Design de banco de dados
