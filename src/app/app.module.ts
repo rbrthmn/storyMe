@@ -10,6 +10,8 @@ import { QuestionsComponent } from './components/questions/questions.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ListRegistryComponent } from './components/list-registry/list-registry.component';
 import { MaterialModule } from './material-module';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { MaterialModule } from './material-module';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
