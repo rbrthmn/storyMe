@@ -2,8 +2,12 @@
     <div class="search-bar">
         <mat-card>
             <mat-form-field>
-                <input matInput placeholder="Pesquisar" />
-                <mat-icon matSuffix>search</mat-icon>
+                <input type="text" matInput placeholder="Pesquisar" [matAutocomplete]="auto" [formControl]="myControl">
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let record of filteredRecords | async" [value]="record">
+                        {{record}}
+                    </mat-option>
+                </mat-autocomplete>
             </mat-form-field>
             <i class='material-icons' (click)="registerDay()" style="background-color: #77dd77; border-radius: 50px; padding: 10px">add</i>
         </mat-card>

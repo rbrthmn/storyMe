@@ -22,5 +22,11 @@ export class QuestionsComponent implements OnInit {
     this.todayDay = new Date();
   }
 
-    goBack = (id: number) => this.router.navigate([`listRegistry`]);
+    goBack = () => this.router.navigate([`listRegistry`]);
+
+    save() {
+      //service
+      this.router.navigate([`listRegistry`]);
+    } 
+
 }
