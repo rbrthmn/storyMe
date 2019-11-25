@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-registry',
@@ -7,11 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListRegistryComponent implements OnInit {
 
-  constructor() { }
+  constructor( 
+    private router: Router
+    ) { }
 
   ngOnInit() {
   }
 
-  registerDay() => 
-
+  registerDay = (id: number) => this.router.navigate([`register`]);
 }

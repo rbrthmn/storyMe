@@ -1,1 +1,45 @@
-<p>questions works!</p>
+<div fxLayout='row wrap' fxFlex.gt-sm='100' fxFlex='100' style="flex: 1;">
+    <div fxFlex.gt-sm='100' fxFlex='100'>
+        <mat-card>
+            <mat-card-content>
+                <mat-card-title>{{ todayDay }}</mat-card-title>
+                <form class='basic-form m-l-10 m-r-10 m-t-20' autocomplete="off">
+                    <div fxLayout="row wrap" fxFlexAlign="center" class="row p-20 border-lead-main">
+                        <div fxFlex.gt-sm='100' fxFlex='100' class='p-100'>
+                            <mat-slider class="example-margin" [disabled]="disabled" [invert]="invert" [max]="max" [min]="min" [step]="step" [thumbLabel]="thumbLabel" [tickInterval]="tickInterval" [vertical]="vertical">
+                            </mat-slider>
+                        </div>
+                        <div fxFlex.gt-sm='100' fxFlex='100' class='p-100'>
+                            <mat-form-field>
+                                <input type="text" placeholder="O que você fez hoje?" aria-label='Number' matInput formControlName="accommodation">
+                            </mat-form-field>
+                        </div>
+                        <div fxFlex.gt-sm='100' fxFlex='100' class='p-100'>
+                            <mat-form-field>
+                                <input type="text" placeholder="O que teve de bom no seu dia? E como você se sente sobre isso?" aria-label='Number' matInput formControlName="accommodation">
+                            </mat-form-field>
+                        </div>
+                        <div fxFlex.gt-sm='100' fxFlex='100' class='p-100'>
+                            <mat-form-field>
+                                <input type="text" placeholder="O que teve de bom no seu dia? E como você se sente sobre isso?" aria-label='Number' matInput formControlName="accommodation">
+                            </mat-form-field>
+                        </div>
+                        <div fxFlex.gt-sm='100' fxFlex='100' class='p-100'>
+                            <mat-form-field>
+                                <input type="text" placeholder="A quem você agradeceria as coisas boas de hoje?" aria-label='Number' matInput formControlName="accommodation">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="basic-form m-t-10" fxLayout="row wrap" fxFlexAlign="center" class="row">
+                    <div fxFlex.gt-sm="20" fxFlex="100" class="p-10 m-t-10 m-b-10">
+                        <a href="javascript:;" (click)='goBack()'>Voltar para Menu</a>
+                    </div>
+                    <div fxFlex.gt-sm="60" fxFlex="100" class="p-10"></div>
+                </div>
+
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
