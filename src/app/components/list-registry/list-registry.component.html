@@ -1,8 +1,9 @@
 <main>
-    <div class="search-bar">
-        <mat-card>
+    <div style="height: 100%; width: 100%;">
+        <mat-card style="height: 100%; width: 100%;">
             <mat-form-field>
                 <input type="text" matInput placeholder="Pesquisar" [matAutocomplete]="auto" [formControl]="myControl">
+                <mat-icon matSuffix>search</mat-icon>
                 <mat-autocomplete #auto="matAutocomplete">
                     <mat-option *ngFor="let record of filteredRecords | async" [value]="record">
                         {{record}}

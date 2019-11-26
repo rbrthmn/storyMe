@@ -1,19 +1,31 @@
-<div fxLayout='row wrap'>
-    <div fxFlex.gt-sm='100' fxFlex.gt-xs='100' fxFlex='100'>
-        <mat-card>
-            <mat-card-content>
-                <mat-card-title>{{ recordDay }}</mat-card-title>
+<div style="height: 100%; width: 100%;">
+    <mat-card style="height: 100%; width: 100%;">
+        <mat-card-content>
+            <mat-card-title>{{ recordDay }}</mat-card-title>
 
-                <div fxLayout='row wrap' fxFlexAlign='center' class='row m-t-20 border-box p-10'>
-                    <div fxFlex.gt-sm='100' fxFlex='100' class='p-10'>
-                        <p>Empreendimento: <strong>{{attendance.enterpriseName}}</strong></p>
-                    </div>
-                    <div fxFlex.gt-sm='50' fxFlex='100' class='p-r-10 p-l-10 p-t-5 p-b-5'>
-                        <p>Checkin: <strong>{{attendance.checkin | date: 'dd/MM/yyyy H:mm'}}</strong></p>
-                    </div>
+            <div fxLayout='row wrap' fxFlexAlign='center' class='row m-t-20 border-box p-10'>
+                <div fxFlex.gt-sm='100' fxFlex='100' class='p-10'>
+                    <p>Como foi seu dia?:</p>
+                    <strong>{{ answer[0] }}</strong>
                 </div>
-
-            </mat-card-content>
-        </mat-card>
-    </div>
+                <div fxFlex.gt-sm='50' fxFlex='100' class='p-r-10 p-l-10 p-t-5 p-b-5'>
+                    <p>O que você fez hoje?: </p>
+                    <strong>{{ answer[1] }}</strong>
+                </div>
+                <div fxFlex.gt-sm='50' fxFlex='100' class='p-r-10 p-l-10 p-t-5 p-b-5'>
+                    <p>O que teve de bom no seu dia? E como você se sente sobre isso?: </p>
+                    <strong>{{ answer[2] }}</strong>
+                </div>
+                <div fxFlex.gt-sm='50' fxFlex='100' class='p-r-10 p-l-10 p-t-5 p-b-5'>
+                    <p>O que teve de ruim no seu dia? E como você se sente sobre isso?: </p>
+                    <strong>{{ answer[3] }}</strong>
+                </div>
+                <div fxFlex.gt-sm='50' fxFlex='100' class='p-r-10 p-l-10 p-t-5 p-b-5'>
+                    <p>A quem você agradeceria as coisas boas de hoje?: </p>
+                    <strong>{{ answer[4] }}</strong>
+                </div>
+            </div>
+            <i class='material-icons' (click)="goBack()" style="background-color: #77dd77; border-radius: 50px; padding: 10px">add</i>
+        </mat-card-content>
+    </mat-card>
 </div>
