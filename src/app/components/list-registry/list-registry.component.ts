@@ -17,6 +17,41 @@ export class ListRegistryComponent implements OnInit {
     "three",
     "25/11/2019"
   ];
+
+  
+  list: string[] = [
+    "one",
+    "two", 
+    "three",
+    "25/11/2019",
+    "one",
+    "two", 
+    "three",
+    "25/11/2019",
+    "one",
+    "two", 
+    "three",
+    "25/11/2019",
+    "one",
+    "two", 
+    "three",
+    "25/11/2019","one",
+    "two", 
+    "three",
+    "25/11/2019",
+    "one",
+    "two", 
+    "three",
+    "25/11/2019",
+    "one",
+    "two", 
+    "three",
+    "25/11/2019",
+    "one",
+    "two", 
+    "three",
+    "25/11/2019"
+  ];
   filteredRecords: Observable<string[]>;
   myControl = new FormControl('');
 
