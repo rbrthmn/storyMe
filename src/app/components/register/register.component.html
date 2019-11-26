@@ -1,0 +1,19 @@
+<div fxLayout='row wrap'>
+    <div fxFlex.gt-sm='100' fxFlex.gt-xs='100' fxFlex='100'>
+        <mat-card>
+            <mat-card-content>
+                <mat-card-title>{{ recordDay }}</mat-card-title>
+
+                <div fxLayout='row wrap' fxFlexAlign='center' class='row m-t-20 border-box p-10'>
+                    <div fxFlex.gt-sm='100' fxFlex='100' class='p-10'>
+                        <p>Empreendimento: <strong>{{attendance.enterpriseName}}</strong></p>
+                    </div>
+                    <div fxFlex.gt-sm='50' fxFlex='100' class='p-r-10 p-l-10 p-t-5 p-b-5'>
+                        <p>Checkin: <strong>{{attendance.checkin | date: 'dd/MM/yyyy H:mm'}}</strong></p>
+                    </div>
+                </div>
+
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
