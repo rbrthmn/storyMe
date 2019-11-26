@@ -1,0 +1,44 @@
+<div style="height: 100%;">
+    <mat-card style="height: 100%;">
+        <mat-card-content>
+            <mat-card-title>{{ todayDay }}</mat-card-title>
+            <form class='basic-form m-l-10 m-r-10 m-t-20' autocomplete="off">
+                <div fxLayout="row wrap" fxFlexAlign="center" class="row p-20 border-lead-main">
+                    <div fxFlex.gt-sm='100' fxFlex='100' class='p-100'>
+                        <mat-slider class="example-margin" style="width: 100%;">
+                        </mat-slider>
+                    </div>
+                    <div fxFlex.gt-sm='100' fxFlex='100' class='p-100'>
+                        <mat-form-field style="width: 100%;">
+                            <input type="text" placeholder="O que você fez hoje?" aria-label='Number' matInput>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex.gt-sm='100' fxFlex='100' class='p-100'>
+                        <mat-form-field style="width: 100%;">
+                            <input type="text" placeholder="O que teve de bom no seu dia? E como você se sente sobre isso?" aria-label='Number' matInput>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex.gt-sm='100' fxFlex='100' class='p-100'>
+                        <mat-form-field style="width: 100%;">
+                            <input type="text" placeholder="O que teve de bom no seu dia? E como você se sente sobre isso?" aria-label='Number' matInput>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex.gt-sm='100' fxFlex='100' class='p-100'>
+                        <mat-form-field style="width: 100%;">
+                            <input type="text" placeholder="A quem você agradeceria as coisas boas de hoje?" aria-label='Number' matInput>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </form>
+
+            <div class="basic-form m-t-10" fxLayout="row wrap" fxFlexAlign="center" class="row">
+                <button mat-raised-button class="p-auto" style="background-color: red;" (click)="save()">
+                    <span style="color: white">Cancelar</span>
+                </button>
+                <button mat-raised-button class="p-auto" style="background-color: #77dd77;" (click)="save()">
+                    <span style="color: white">Salvar</span>
+                </button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
