@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-questions',
@@ -13,20 +14,27 @@ export class QuestionsComponent implements OnInit {
   question3: string;
   question4: string;
   question5: string;
+  user: firebase.UserInfo;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ) { }
 
   ngOnInit() {
     this.todayDay = new Date();
   }
 
-    goBack = () => this.router.navigate([`listRegistry`]);
+  goBack = () => this.router.navigate([`listRegistry`]);
 
-    save() {
-      //service
-      this.router.navigate([`listRegistry`]);
-    } 
+  save() {
+    this.userService.user.subscribe((user) => {
+      if (this.userService.user !== null || this.userService.user !== undefined) {
+        this.router.navigate([`listRegistry`]);
+      } else {
+        console.log("Usuário precisa estar logado!", this.userService.user);
+      }
+    })
+  }
 
 }

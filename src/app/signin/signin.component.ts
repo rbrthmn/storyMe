@@ -16,17 +16,17 @@ export class SigninComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.userService.user.subscribe((user) => {
-      if (this.userService.user !== null || this.userService.user !== undefined) {
-        this.router.navigate([`listRegistry`]);
-      }
-    }
-    )
-
+    // this.userService.user.subscribe((user) => {
+    //   if (this.userService.user !== null) {
+    //     this.router.navigate([`listRegistry`]);
+    //     console.log(this.userService.user)
+    //   }
+    // })
   }
 
   signin() {
     this.userService.googleSignIn();
+    console.log(this.userService.user)
     this.router.navigate([`listRegistry`]);
   }
 
