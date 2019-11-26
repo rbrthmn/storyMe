@@ -3,6 +3,7 @@ import {AngularFirestore, AngularFirestoreCollection, DocumentReference} from "@
 import {Observable} from "rxjs";
 import RecordInterface from "../interfaces/record.interface";
 import uuid from 'uuid/v4';
+import {UserService} from "./user.service";
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class RecordService {
 
   private dbCollection: AngularFirestoreCollection<RecordInterface>;
 
-  constructor(private db: AngularFirestore) {
+  constructor(private db: AngularFirestore, private userService: UserService) {
     this.dbCollection = db.collection<RecordInterface>(RecordService.DB_COLLECTION_KEY);
   }
 
@@ -31,9 +32,10 @@ export class RecordService {
    * contain the 'id', since it's a new entry.
    * @returns the document reference of the new record added.
    */
-  public async addRecord(record: Omit<RecordInterface, 'id'>): Promise<DocumentReference> {
+  public async addRecord(record: Omit<RecordInterface, 'id' | 'userId'>): Promise<DocumentReference> {
+    const user = await this.userService.user.toPromise();
     const r: RecordInterface = {
-      ...record, id: uuid()
+      ...record, id: uuid(), userId: user.uid
     };
     return await this.dbCollection.add(r);
   }
