@@ -4,6 +4,7 @@ import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import { Record } from 'src/app/model/record';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-list-registry',
@@ -54,9 +55,11 @@ export class ListRegistryComponent implements OnInit {
   ];
   filteredRecords: Observable<string[]>;
   myControl = new FormControl('');
+  user: firebase.UserInfo;
 
   constructor( 
-    private router: Router
+    private router: Router,
+    private userService: UserService,
     ) { }
 
   ngOnInit() {
@@ -72,5 +75,11 @@ export class ListRegistryComponent implements OnInit {
     return this.records.filter(record => record.toLowerCase().includes(filterValue));
   }
 
-  registerDay = (id: number) => this.router.navigate([`register`]);
+  registerDay = (id: number) => this.userService.user.subscribe((user) => {
+    if (this.userService.user !== null || this.userService.user !== undefined) {
+      this.router.navigate([`register`]);
+    } else {
+      console.log("Usuário precisa estar logado!");
+    }
+  })
 }

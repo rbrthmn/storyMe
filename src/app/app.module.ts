@@ -13,13 +13,16 @@ import { MaterialModule } from './material-module';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SigninComponent } from './signin/signin.component';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @NgModule({
   declarations: [
     AppComponent,
     QuestionsComponent,
     RegisterComponent,
-    ListRegistryComponent
+    ListRegistryComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AngularFireAuth],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
