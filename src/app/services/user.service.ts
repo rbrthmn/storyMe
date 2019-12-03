@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import  {AngularFireAuth } from '@angular/fire/auth';
+import {AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import * as firebase from 'firebase/app';
 import UserCredential = firebase.auth.UserCredential;
@@ -58,6 +58,16 @@ export class UserService {
     }
 
     return userCredentials;
+  }
+
+  /**
+   * Logs the current user out, if there is a current user.
+   */
+  public async signOut(): Promise<void> {
+    const currentUser = await this.fireAuth.user.toPromise();
+    if (currentUser != null) {
+      await this.fireAuth.auth.signOut();
+    }
   }
 
 }
