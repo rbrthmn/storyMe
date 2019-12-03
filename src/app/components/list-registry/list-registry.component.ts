@@ -3,8 +3,11 @@ import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
-import { Record } from 'src/app/model/record';
 import { UserService } from 'src/app/services/user.service';
+import { Record } from 'src/app/model/record'
+import { RecordService } from 'src/app/services/record.service';
+import { JsonPipe } from '@angular/common';
+import RecordInterface from 'src/app/interfaces/record.interface';
 
 @Component({
   selector: 'app-list-registry',
@@ -12,68 +15,29 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./list-registry.component.css']
 })
 export class ListRegistryComponent implements OnInit {
-  records: string[] = [
-    "one",
-    "two", 
-    "three",
-    "25/11/2019"
-  ];
-
-  
-  list: string[] = [
-    "one",
-    "two", 
-    "three",
-    "25/11/2019",
-    "one",
-    "two", 
-    "three",
-    "25/11/2019",
-    "one",
-    "two", 
-    "three",
-    "25/11/2019",
-    "one",
-    "two", 
-    "three",
-    "25/11/2019","one",
-    "two", 
-    "three",
-    "25/11/2019",
-    "one",
-    "two", 
-    "three",
-    "25/11/2019",
-    "one",
-    "two", 
-    "three",
-    "25/11/2019",
-    "one",
-    "two", 
-    "three",
-    "25/11/2019"
-  ];
+  list: RecordInterface[] = [];
   filteredRecords: Observable<string[]>;
   myControl = new FormControl('');
   user: firebase.UserInfo;
+  records: any;
+  date: Date;
 
   constructor( 
     private router: Router,
-    private userService: UserService,
-    ) { }
+    private userService: UserService, 
+    private recordService: RecordService
+    ) {
+     }
 
   ngOnInit() {
-    this.filteredRecords = this.myControl.valueChanges
-      .pipe(
-        startWith(''),
-        map(value => this._filter(value))
-      );
+    this.date = new Date();
+    this.search();
   }
 
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-    return this.records.filter(record => record.toLowerCase().includes(filterValue));
-  }
+  // private _filter(value: string): string[] {
+  //   const filterValue = value.toLowerCase();
+  //   return this.records.filter(record => record.toLowerCase().includes(filterValue));
+  // }
 
   registerDay = (id: number) => this.userService.user.subscribe((user) => {
     if (this.userService.user !== null || this.userService.user !== undefined) {
@@ -86,5 +50,15 @@ export class ListRegistryComponent implements OnInit {
   signOut() {
     this.userService.googleSignOut();
     this.router.navigate([`signin`]);
+  }
+
+  selectItem(id:  number) {
+    this.router.navigate([`viewRegister/${id}`]);
+  }
+
+  async search(){
+    let records = await this.recordService.searchByDate(this.date);
+    this.list = records;
+    console.log(`${records.length}`);
   }
 }

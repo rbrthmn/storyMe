@@ -1,9 +1,12 @@
 <div style="height: 100%; width: 100%;">
     <mat-card style="height: 100%; width: 100%;">
         <mat-card-content>
-            <mat-card-title>Registro do dia {{ record.createdAt.toLocaleDateString() }}</mat-card-title>
+            <mat-card-title>Registro do dia {{ record.createdAt.toDate().toLocaleDateString() }}</mat-card-title>
 
             <div fxLayout='row wrap' fxFlexAlign='center' class='row m-t-20 border-box p-10'>
+                <div fxFlex.gt-sm='100' fxFlex='100' class='p-10'>
+                    <strong>Nota do dia: {{ record.rating.answer }}</strong>
+                </div>
                 <div *ngFor="let answer of record.answers" fxFlex.gt-sm='100' fxFlex='100' class='p-10'>
                     <p>{{answer.question.text}}</p>
                     <strong>{{ answer.answer }}</strong>
