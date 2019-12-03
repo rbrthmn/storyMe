@@ -3,8 +3,8 @@ import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
-import { Record } from 'src/app/model/record';
 import { UserService } from 'src/app/services/user.service';
+import { Record } from 'src/app/model/record'
 
 @Component({
   selector: 'app-list-registry',
@@ -12,46 +12,12 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./list-registry.component.css']
 })
 export class ListRegistryComponent implements OnInit {
-  records: string[] = [
-    "one",
-    "two", 
-    "three",
-    "25/11/2019"
-  ];
-
-  
-  list: string[] = [
-    "one",
-    "two", 
-    "three",
-    "25/11/2019",
-    "one",
-    "two", 
-    "three",
-    "25/11/2019",
-    "one",
-    "two", 
-    "three",
-    "25/11/2019",
-    "one",
-    "two", 
-    "three",
-    "25/11/2019","one",
-    "two", 
-    "three",
-    "25/11/2019",
-    "one",
-    "two", 
-    "three",
-    "25/11/2019",
-    "one",
-    "two", 
-    "three",
-    "25/11/2019",
-    "one",
-    "two", 
-    "three",
-    "25/11/2019"
+  list: Record[] = [
+    {
+      id: 1,
+      data: new Date(),
+      dayScore: 5
+    }
   ];
   filteredRecords: Observable<string[]>;
   myControl = new FormControl('');
@@ -63,17 +29,17 @@ export class ListRegistryComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.filteredRecords = this.myControl.valueChanges
-      .pipe(
-        startWith(''),
-        map(value => this._filter(value))
-      );
+    // this.filteredRecords = this.myControl.valueChanges
+    //   .pipe(
+    //     startWith(''),
+    //     map(value => this._filter(value))
+    //   );
   }
 
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-    return this.records.filter(record => record.toLowerCase().includes(filterValue));
-  }
+  // private _filter(value: string): string[] {
+  //   const filterValue = value.toLowerCase();
+  //   return this.records.filter(record => record.toLowerCase().includes(filterValue));
+  // }
 
   registerDay = (id: number) => this.userService.user.subscribe((user) => {
     if (this.userService.user !== null || this.userService.user !== undefined) {
