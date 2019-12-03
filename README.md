@@ -20,3 +20,5 @@ Diariamente somos bombardeados com novas informações, notícias e acabamos nã
 ![](/docs/assets/Diagrama-de-classes.png)
  ### Design de banco de dados
  ![](/docs/assets/bd-design.png)
+ ### Arquitetura da aplicação
+ ![](/docs/assets/arquiteturaStoryMe.png) 
