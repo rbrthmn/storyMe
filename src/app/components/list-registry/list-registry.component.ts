@@ -17,6 +17,11 @@ export class ListRegistryComponent implements OnInit {
       id: 1,
       data: new Date(),
       dayScore: 5
+    },
+    {
+      id: 2,
+      data: new Date(),
+      dayScore: 3
     }
   ];
   filteredRecords: Observable<string[]>;
