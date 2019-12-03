@@ -1,9 +1,10 @@
 <div style="height: 100%;">
     <mat-card style="height: 100%;">
         <mat-card-content>
-            <mat-card-title>{{ todayDay }}</mat-card-title>
+            <mat-card-title>Novo registro do dia {{ todayDay.toLocaleDateString() }}</mat-card-title>
                 <div fxLayout="row wrap" fxFlexAlign="center" class="row p-20 border-lead-main">
                     <div fxFlex.gt-sm='100' fxFlex='100' class='p-100'>
+                        <p>Meu dia hoje foi nota {{question1}}</p>
                         <mat-slider class="example-margin" min="1" max="5" step="1" style="width: 100%;" [(ngModel)]="question1">
                         </mat-slider>
                     </div>

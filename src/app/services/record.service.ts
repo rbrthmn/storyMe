@@ -126,13 +126,15 @@ export class RecordService {
    */
   public async searchByDate(date: Date): Promise<RecordInterface[]> {
     const dateLess = new Date(date);
+    const dateMore = new Date(date);
     dateLess.setDate(date.getDate() - 1);
+    dateMore.setDate(date.getDate() + 1);
     const col = this.db.collection<RecordInterface>(
       RecordService.DB_COLLECTION_KEY,
       ref => ref
         .where('userId', '==', this.user.uid)
         .where('createdAt', '>', dateLess)
-        .where('createdAt', '<=', date)
+        .where('createdAt', '<', dateMore)
     );
     const items = (await col.get().toPromise());
     if (items.empty) {
