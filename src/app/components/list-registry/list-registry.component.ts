@@ -18,6 +18,41 @@ export class ListRegistryComponent implements OnInit {
     "three",
     "25/11/2019"
   ];
+
+  
+  list: string[] = [
+    "one",
+    "two", 
+    "three",
+    "25/11/2019",
+    "one",
+    "two", 
+    "three",
+    "25/11/2019",
+    "one",
+    "two", 
+    "three",
+    "25/11/2019",
+    "one",
+    "two", 
+    "three",
+    "25/11/2019","one",
+    "two", 
+    "three",
+    "25/11/2019",
+    "one",
+    "two", 
+    "three",
+    "25/11/2019",
+    "one",
+    "two", 
+    "three",
+    "25/11/2019",
+    "one",
+    "two", 
+    "three",
+    "25/11/2019"
+  ];
   filteredRecords: Observable<string[]>;
   myControl = new FormControl('');
   user: firebase.UserInfo;
@@ -47,4 +82,9 @@ export class ListRegistryComponent implements OnInit {
       console.log("Usuário precisa estar logado!");
     }
   })
+
+  signOut() {
+    this.userService.googleSignOut();
+    this.router.navigate([`signin`]);
+  }
 }
