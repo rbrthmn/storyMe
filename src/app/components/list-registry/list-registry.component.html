@@ -1,5 +1,6 @@
 <main>
-    <div style="height: 100%; width: 100%;">
+
+    <div>
         <mat-card style="height: 100%; width: 100%;">
             <mat-form-field>
                 <input type="text" matInput placeholder="Pesquisar" [matAutocomplete]="auto" [formControl]="myControl">
@@ -10,7 +11,12 @@
                     </mat-option>
                 </mat-autocomplete>
             </mat-form-field>
-            <i class='material-icons' (click)="registerDay()" style="background-color: #77dd77; border-radius: 50px; padding: 10px">add</i>
+            <mat-list>
+                <mat-list-item *ngFor="let item of list">{{item}}</mat-list-item>
+            </mat-list>
+            <button mat-fab class='material-icons' (click)="registerDay()" style="background-color: #77dd77; position: fixed; bottom: 0; right: 0; margin: 16px;"><mat-icon>add</mat-icon></button>
+            <button mat-fab class='material-icons' (click)="signOut()" style="background-color: white; position: fixed; top: 0; right: 0; margin: 16px;"><mat-icon>exit_to_app</mat-icon></button>
         </mat-card>
     </div>
+
 </main>

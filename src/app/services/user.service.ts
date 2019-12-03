@@ -63,7 +63,7 @@ export class UserService {
   /**
    * Logs the current user out, if there is a current user.
    */
-  public async signOut(): Promise<void> {
+  public async googleSignOut(): Promise<void> {
     const currentUser = await this.fireAuth.user.toPromise();
     if (currentUser != null) {
       await this.fireAuth.auth.signOut();
