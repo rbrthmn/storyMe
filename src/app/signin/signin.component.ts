@@ -24,9 +24,8 @@ export class SigninComponent implements OnInit {
     // })
   }
 
-  signin() {
-    this.userService.googleSignIn();
-    console.log(this.userService.user)
+  async signin() {
+    await this.userService.googleSignIn();
     this.router.navigate([`listRegistry`]);
   }
 

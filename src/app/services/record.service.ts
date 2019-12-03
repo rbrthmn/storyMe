@@ -60,9 +60,8 @@ export class RecordService {
    * @returns the document reference of the new record added.
    */
   public async addRecord(record: Omit<RecordInterface, 'id' | 'userId'>): Promise<DocumentReference> {
-    const user = await this.userService.user.toPromise();
     const r: RecordInterface = {
-      ...record, id: uuid(), userId: user.uid
+      ...record, id: uuid(), userId: this.user.uid
     };
     return await this.dbCollection.add(r);
   }
