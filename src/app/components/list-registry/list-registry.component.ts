@@ -82,4 +82,9 @@ export class ListRegistryComponent implements OnInit {
       console.log("Usuário precisa estar logado!");
     }
   })
+
+  signOut() {
+    this.userService.googleSignOut();
+    this.router.navigate([`signin`]);
+  }
 }
