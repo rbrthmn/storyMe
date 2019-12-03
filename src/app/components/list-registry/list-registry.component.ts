@@ -22,6 +22,7 @@ export class ListRegistryComponent implements OnInit {
   filteredRecords: Observable<string[]>;
   myControl = new FormControl('');
   user: firebase.UserInfo;
+  records: any;
 
   constructor( 
     private router: Router,
