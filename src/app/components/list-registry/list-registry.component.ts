@@ -54,4 +54,8 @@ export class ListRegistryComponent implements OnInit {
     this.userService.googleSignOut();
     this.router.navigate([`signin`]);
   }
+
+  selectItem(id:  number) {
+    this.router.navigate([`viewRegister/${id}`]);
+  }
 }
