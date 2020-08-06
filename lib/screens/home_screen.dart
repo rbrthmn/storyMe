@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:storyme/tabs/home_tab.dart';
 import 'package:storyme/widgets/custom_drawer.dart';
+import 'package:storyme/widgets/new_record_button.dart';
 
 class HomeScreen extends StatelessWidget {
 
@@ -15,7 +16,11 @@ class HomeScreen extends StatelessWidget {
         Scaffold(
           body: HomeTab(),
           drawer: CustomDrawer(_pageController),
-          floatingActionButton: null,
+          floatingActionButton: NewRecordButton(),
+          appBar: AppBar(
+            title: Text("Meus Registros"),
+            centerTitle: true,
+          ),
         ),
         Scaffold(
           appBar: AppBar(
